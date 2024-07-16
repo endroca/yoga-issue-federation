@@ -1,0 +1,11 @@
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@composeDirective", "@extends", "@external", "@inaccessible", "@interfaceObject", "@key", "@override", "@provides", "@requires", "@shareable", "@tag"])
+
+type Media @key(fields: "id") @interfaceObject {
+  id: ID!
+  teste: String @external
+  author: Author! @requires(fields: "teste")
+}
+
+type Author {
+  name: String!
+}
